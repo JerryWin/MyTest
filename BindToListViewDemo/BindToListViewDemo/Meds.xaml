@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="BindToListViewDemo.Meds"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BindToListViewDemo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel>
+        <TextBox Header="Medication Name: " x:Name="medname_box" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="186" />
+        <TextBox Header="Medication Total Dose: " x:Name="meddose_box" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="186" />
+        <TextBox Header="What For: " x:Name="whatfor_box" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="186" />
+        <Button x:Name="btnAdd" Content="Add" Click="btnAdd_Click" Width="186" Margin="0,5" />
+        <Button x:Name="btnBack" Content="Back" Click="btnBack_Click" Width="186" Margin="0,5" />
+        <ListView Header="Medications" x:Name="myList" Background="White" HorizontalAlignment="Left" Width="400">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="400">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!--Bind data to ListView Item, here I just bind three items for Medications, you can add other items if needed-->
+                        <TextBlock x:Name="medName" Text="{Binding Path=MedName}" TextWrapping="Wrap" />
+                        <TextBlock Grid.Column="1" x:Name="medDose" Text="{Binding Path=MedDose}" TextWrapping="Wrap" />
+                        <TextBlock Grid.Column="2" x:Name="whatFor" Text="{Binding Path=WhatFor}" TextWrapping="Wrap" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackPanel>
+</Page>
